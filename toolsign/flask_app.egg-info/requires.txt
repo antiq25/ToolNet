@@ -1,0 +1,8 @@
+flask
+flask_sqlalchemy
+sqlalchemy
+werkzeug
+functools
+flask_login
+jsonify
+datetime
