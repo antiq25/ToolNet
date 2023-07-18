@@ -8,7 +8,7 @@ from datetime import datetime
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['JAWSDB_MARIA_URL'] = 'mysql://xk71fzvkf6vend9c:gvsh12w11neptxur@klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ipyth40gerz4da8b'
 app.secret_key = os.urandom(16)
 
 db = SQLAlchemy(app)
