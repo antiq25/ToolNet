@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../static/css/loginlog.css">
+
+</head>
+
+<body>
+    <form action="/signup" method="post">
+        <div class="container">
+            <h3 class="animated-heading3"></h3>
+            <div class="logo-container">
+              <img src="../static/ElafonText.png" alt="Elafon Logo" class="logo">
+            </div>
+            <label for="name">Register</label>
+            <input type="text" id="name" name="name" required>
+            <label for="password"></label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Signup">
+            <p>Have an account?</p>
+            <div class="shared-bar">
+                <button class="animated-link" onclick="location.href='/login'">Login</button>
+            </div>
+    </form>
+</body>
+</html>

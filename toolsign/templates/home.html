@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Elafon Mechanical</title>
+    {% include 'loader.html' %}
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header id="header" style="height: 50px !important; background-color: white; position: fixed; z-index: 99; top: 0px; width: 100%;">
+            <div class="banner" style="height: 50px; background-color: #393939; padding-left: 20px;">
+                <div class="company-info" style="padding: 0 0 0 50px; position: relative;">
+                    <div class="logo" style="background-image: url('/static/image/logo.png'); background-repeat: no-repeat; background-position: center left; width: 50px; float: left; height: 50px; background-size: 40px 40px; left: 0; position: absolute; top: 0;"></div>
+                    <div class="app-name" style="float: left; height: 50px; vertical-align: middle; line-height: 50px; display: inline; color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 16px; white-space: nowrap;">ELAFON MECHANICAL</div>
+                </div>
+                <div class="company-name" style="text-align: center; color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 20px; white-space: nowrap;"></div>
+            </div>
+        </header>
+        <header>
+            <img src="../static/ElafonText.png" alt="Elafon Logo" class="logo">
+            <h2 class="welcome">Welcome, {{ tech.name }}</h2>
+        </header>
+        <div class="shared-bar">
+            <button class="animated-link" onclick="location.href='/return_item'">Return Item</button>
+            <button class="animated-link" onclick="location.href='/add_item'">Add Tool</button>
+            <button class="animated-link" onclick="location.href='/logout'">Logout</button>
+        </div>
+        <h3 class="section-title">Equipment</h3>
+        <table class="tools">
+            <tr>
+                <th>Tool</th>
+                <th>Action</th>
+            </tr>
+            {% for tool in tools %}
+            <tr>
+                <td>{{ tool.name }}</td>
+                <td>
+                    <form action="/" method="post">
+                        <input type="hidden" name="tool_id" value="{{ tool.id }}">
+                        <input type="submit" value="Sign Out" class="sign-out-button">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3 class="section-title">Keys</h3>
+        <table class="keys">
+            <tr>
+                <th>Key</th>
+                <th>Action</th>
+            </tr>
+            {% for key in keys %}
+            <tr>
+                <td>{{ key.name }}</td>
+                <td>
+                    <form action="/" method="post">
+                        <input type="hidden" name="key_id" value="{{ key.id }}">
+                        <input type="submit" value="Sign Out" class="sign-out-button">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h3 class="section-title2">Signed Out</h3>
+        <h3 class="section-title">Tools</h3>
+        <table class="all-signouts">
+            <tr>
+                <th>Technician</th>
+                <th>Tool Name</th>
+                <th>Date Out</th>
+                <th>Date Returned</th>
+            </tr>
+            {% for signout in signouts %}
+            {% if signout.tool %}
+            <tr>
+                <td>{{ signout.technician.name }}</td>
+                <td>{{ signout.tool.name }}</td>
+                <td>{{ signout.date_out }}</td>
+                <td>{{ signout.date_returned if signout.returned else "Not yet returned" }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+        <h3 class="section-title">Keys</h3>
+        <table class="all-signouts">
+            <tr>
+                <th>Technician</th>
+                <th>Key Name</th>
+                <th>Date Out</th>
+                <th>Date Returned</th>
+            </tr>
+            {% for signout in signouts %}
+            {% if signout.key %}
+            <tr>
+                <td>{{ signout.technician.name }}</td>
+                <td>{{ signout.key.name }}</td>
+                <td>{{ signout.date_out }}</td>
+                <td>{{ signout.date_returned if signout.returned else "Not yet returned" }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('loader').style.display = 'flex';
+        });
+
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                var loaderWrapper = document.getElementById('loader-wrapper');
+                loaderWrapper.classList.add('fade-out');
+                setTimeout(function () {
+                    loaderWrapper.style.display = 'none';
+                }, 500);
+            }, 700);
+        });
+    </script>
+</body>
+
+</html>

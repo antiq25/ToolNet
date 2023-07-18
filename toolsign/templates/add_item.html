@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Item</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="title">Add Item</h1>
+
+    <form action="/add_item" method="post">
+        <label for="name">Item Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="type">Item Type</label>
+        <select id="type" name="type" required>
+            <option value="">--Please choose an option--</option>
+            <option value="tool">Tool</option>
+            <option value="key">Key</option>
+        </select>
+
+        <label for="group">Group</label>
+        <select id="group" name="group_id" required>
+            <option value="" selected>--Please choose an option--</option>
+            {% for group in groups %}
+            {% if group.name == 'Default' %}
+            <option value="{{ group.id }}" selected>{{ group.name }}</option>
+            {% else %}
+            <option value="{{ group.id }}">{{ group.name }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="Add Item">
+    </form>
+    
+    <a href="/">Back</a>
+</div>
+
+</body>
+</html>

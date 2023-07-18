@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elafon Mechanical</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title"></h1>
+        <img src="/static/ElafonText.png" alt="Elafon Logo" class="logo">
+        <p class="test-warning">test client version 0.1.1</p>
+        <h2 class="welcome">Welcome, {{ tech.name }}</h2>
+        <div class="shared-bar">
+            <button class="animated-link" onclick="location.href='/'">Home</button>
+            <button class="animated-link" onclick="location.href='/add_item'">Add Tool</button>
+            <button class="animated-link" onclick="location.href='/logout'">Logout</button>
+        </div>
+        
+        <h3 class="section-title2">Your Current Signouts</h3>
+        {% if tech_signouts %}
+            <ul>
+                {% for signout in tech_signouts %}
+                    <li>{{ signout.tool.name }} - {{ signout.key.name }}</li>
+                {% endfor %}
+            </ul>
+            <form action="{{ url_for('return_item') }}" method="post">
+                <div class="input-container">
+                    <label for="signout_id">Signout ID:</label>
+                    <select id="signout_id" name="signout_id" required>
+                        <option value="">Select Item to Return</option>
+                        {% for signout in tech_signouts %}
+                            <option value="{{ signout.id }}">{{ signout.tool.name }} - {{ signout.key.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="shared-bar">
+                    <input type="submit" value="Return" class="submit-button">
+                </div>
+            </form>
+        {% else %}
+            <p>No signouts found.</p>
+        {% endif %}
+    </div>
+    <script src="../static/js/loader.js"></script>
+</body>
+</html>

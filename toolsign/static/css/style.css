@@ -1,0 +1,189 @@
+html {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    background-size: cover;
+}
+
+p, .section-title2, .welcome {
+    color: #ffffff;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #efc826;
+    padding: 60px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.86);
+    color: #333333;
+}
+
+.logo {
+    width: 250px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.welcome {
+    text-align:center;
+    font-size: 24px;
+    color: #222222;
+}
+
+.shared-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.animated-link {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #efc826;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+table, .all-signouts {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: linear-gradient(360deg, #333333 90%, #393939 100%);
+    color: #ffffff;
+}
+
+input[type="submit"] {
+    background-color: #efc826;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.sign-out-button:hover {
+    background-color: #c8ab1f;
+    background: linear-gradient(90deg, #efc826 0%, #c8ab1f 100%);
+}
+
+.section-title2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222222;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+    justify-content: left;
+    float: left;
+}
+
+.all-signouts th, .all-signouts td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.logo25 {
+    width: 100px;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.test-warning {
+    text-align: center;
+}
+
+.shared-bar .animated-link:last-child {
+    margin-right: 0;
+}
+
+#header {
+    height: 50px !important;
+    background-color: white;
+    position: fixed;
+    z-index: 99;
+    top: 0px;
+    width: 100%;
+  }
+#header .banner {
+    height: 50px;
+    background-color: #393939;
+    padding-left: 20px;
+}
+#header .banner .company-info {
+    padding: 0 0 0 50px;
+    /* 50px being the width of the thumbnail + how much space you want to put between it and your text */
+    position: relative;
+    /* So the thumbnail is relative to this */
+}
+#header .banner .company-info .logo {
+    background-image: url("/static/image/logo.png");
+    /*background-size: 20px 20px;*/
+    background-repeat: no-repeat;
+    background-position: center left;
+    width: 50px;
+    float: left;
+    height: 50px;
+    background-size: 40px 40px;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+#header .banner .company-info .app-name {
+    float: left;
+    height: 50px;
+    vertical-align: middle;
+    line-height: 50px;
+    display: inline;
+    /* mandatory with line-height to align middle */
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.all-signouts {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}

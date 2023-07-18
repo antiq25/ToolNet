@@ -1,0 +1,27 @@
+<!-- error.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Error Page</title>
+  <link rel="stylesheet" href="../static/css/loginlog.css">
+</head>
+<body>
+  <div class="container">
+  <h3 class="animated-heading3"></h3>
+  <div class="logo-container">
+    <img src="../static/ElafonText.png" alt="Elafon Logo" class="logo">
+  </div>
+      <h3 class="animated-heading3">Error</h3>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+            <p>Go back to <a href="/">Home</a></p>
+        {% endfor %}
+        </ul>
+    {% endif %}
+  {% endwith %}
+      </div>
+</body>
+</html>
