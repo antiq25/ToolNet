@@ -1,20 +1,20 @@
-User
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
-from flask_login import LoginManager, login_user
 
 from datetime import datetime
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+
+# SQLite database in the same directory as this script
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///my_database.db'
+
 app.secret_key = os.urandom(16)
 
 db = SQLAlchemy(app)
-
 
 class Group(db.Model):
     __tablename__ = 'group'
